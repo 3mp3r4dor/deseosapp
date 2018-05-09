@@ -12,9 +12,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //Services
 import { ListaDeseosService } from './services/lista-deseos.service';
 
+
+//Pipes
+import { PlaceholderPipe } from './pipes/placeholder.pipe';
+
 @NgModule({
   declarations: [
     MyApp,
+    PlaceholderPipe,
     TabsPage,
     PendientesComponent, 
     TerminadosComponent, 
