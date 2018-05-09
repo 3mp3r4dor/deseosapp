@@ -8,27 +8,27 @@
         
         <ion-card *ngFor="let lista of _listaDeseos.listas">
 
-          <ion-item>
-              <h2> {{ lista.nombre }}</h2>
+          <ion-item color="dark">
+              <h2 class="white"> {{ lista.nombre }}</h2>
+              <ion-note item-right>
+                {{ lista.items.length }} items
+              </ion-note>
           </ion-item>
           
           <hr>
           <ion-list>
-            <ion-item>             
+            <ion-item *ngFor="let item of lista.items | slice:0:2 ">             
                 <ion-icon name="share-alt">
-                Tetris
+                    <ion-icon *ngIf="!item.completado" name="square"></ion-icon>
+                    <ion-icon *ngIf="item.completado" name="checkbox"></ion-icon>
+                {{ item.nombre }}
                 </ion-icon>                
             </ion-item>
-            <ion-item>             
-                <ion-icon name="share-alt">
-                Tetris
-                </ion-icon>                
+
+            <ion-item class="text-center" *ngIf="lista.items.length > 2">
+                <ion-icon color="primary" name="arrow-dropdown"></ion-icon>
             </ion-item>
-            <ion-item>             
-                <ion-icon name="share-alt">
-                Tetris
-                </ion-icon>                
-            </ion-item>
+            
           </ion-list>
         </ion-card>
 
